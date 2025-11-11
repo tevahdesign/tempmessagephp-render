@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tempmessage.com/png-to-jpeg/sitemap.php
+Sitemap: https://tempmessage.com/sitemap.php
