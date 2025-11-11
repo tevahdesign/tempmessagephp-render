@@ -1,0 +1,5 @@
+document.addEventListener('DOMContentLoaded',()=>{
+const f=document.getElementById('fileInput'),r=document.getElementById('results'),q=document.getElementById('quality'),qv=document.getElementById('qval'),ka=document.getElementById('keepAlpha');
+q.oninput=()=>qv.textContent=q.value;
+f.onchange=e=>{[...f.files].forEach(x=>{const rd=new FileReader();rd.onload=y=>proc(y.target.result,x.name);rd.readAsDataURL(x);});};
+function proc(dataURL,name){const i=new Image();i.onload=()=>{const c=document.createElement('canvas');c.width=i.width;c.height=i.height;const ctx=c.getContext('2d');if(ka.checked){ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}ctx.drawImage(i,0,0);c.toBlob(b=>{const url=URL.createObjectURL(b);const a=document.createElement('a');a.href=url;a.download=name.replace(/\.[^.]+$/, '')+'.jpg';a.textContent='Download '+a.download;a.className='btn';const im=document.createElement('img');im.src=url;r.prepend(im);r.prepend(a);},'image/jpeg',q.value/100);};i.src=dataURL;} });
