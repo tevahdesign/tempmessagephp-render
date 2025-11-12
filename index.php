@@ -1,20 +1,48 @@
 <?php
-$domain = "https://tempmessage.com/";
+// =========================================================
+// 🚫 Block Singapore traffic (allow Google crawlers / adsbot)
+// =========================================================
+$userAgent = strtolower($_SERVER['HTTP_USER_AGENT'] ?? '');
+if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-google') === false) {
+    function getClientIP() {
+        foreach (['HTTP_CLIENT_IP','HTTP_X_FORWARDED_FOR','REMOTE_ADDR'] as $key) {
+            if (!empty($_SERVER[$key])) {
+                $ipList = explode(',', $_SERVER[$key]);
+                return trim($ipList[0]);
+            }
+        }
+        return '0.0.0.0';
+    }
+    $ip = getClientIP();
+    $cacheFile = sys_get_temp_dir() . "/geo_{$ip}.json";
+    if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 86400) {
+        $data = json_decode(file_get_contents($cacheFile), true);
+    } else {
+        $resp = @file_get_contents("http://ip-api.com/json/{$ip}?fields=status,countryCode");
+        $data = $resp ? json_decode($resp, true) : null;
+        if ($data) file_put_contents($cacheFile, json_encode($data));
+    }
+    $country = $data['countryCode'] ?? null;
+    if ($country === 'SG') {
+        http_response_code(403);
+        echo "<h1 style='text-align:center;margin-top:20vh;font-family:sans-serif;color:#444;'>Access Restricted</h1>
+        <p style='text-align:center;font-family:sans-serif;'>Sorry, TempMessage.com is not available in your region.</p>";
+        exit;
+    }
+}
 
-// --- Load keyword.txt file (each line = one keyword) ---
+// =========================================================
+// 🌐 Page Setup and Dynamic SEO Variables
+// =========================================================
+$domain = "https://tempmessage.com/";
 $keywordsFile = __DIR__ . '/keywords.txt';
 $keywordsList = file_exists($keywordsFile)
   ? file($keywordsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
   : [];
 
-// --- Choose keyword ---
-// 1. If ?q= is present, use it
-// 2. Else randomly pick one from keywords.txt (changes daily for SEO stability)
-// 3. Else fallback to default keyword
 if (isset($_GET['q']) && trim($_GET['q']) !== '') {
     $keyword = trim($_GET['q']);
 } elseif (!empty($keywordsList)) {
-    // Optional: stable random keyword per day (better for SEO)
     $daySeed = date('Ymd');
     srand(crc32($daySeed));
     $keyword = $keywordsList[array_rand($keywordsList)];
@@ -22,10 +50,7 @@ if (isset($_GET['q']) && trim($_GET['q']) !== '') {
     $keyword = 'Temporary Message Creator';
 }
 
-// --- Sanitize output ---
 $keyword = htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8');
-
-// --- Dynamic description ---
 $description = "$keyword — Create and share self-destructing messages online with TempMessage.com. End-to-end encryption ensures total privacy — no data stored, no accounts needed.";
 ?>
 <!doctype html>
@@ -43,6 +68,7 @@ $description = "$keyword — Create and share self-destructing messages online w
   <meta property="og:image" content="<?php echo $domain; ?>assets/preview.jpg" />
   <link rel="canonical" href="<?php echo $domain . '?q=' . urlencode($keyword); ?>" />
   <link rel="stylesheet" href="assets/style.css" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135" crossorigin="anonymous"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,17 +96,27 @@ $description = "$keyword — Create and share self-destructing messages online w
     <section class="tool">
       <label for="message">Enter your secret message:</label>
       <textarea id="message" rows="6" placeholder="Type your confidential message here..."></textarea>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
      crossorigin="anonymous"></script>
+<!-- advest -->
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
+     style="display:block"
      data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="1753877472"></ins>
+     data-ad-slot="9730555949"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2885050972904135"
+           data-ad-slot="9730555949"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
       <div class="options">
         <label>Message expires after:
           <select id="expiry">
@@ -89,6 +125,8 @@ $description = "$keyword — Create and share self-destructing messages online w
             <option value="1d">1 day</option>
             <option value="1w">1 week</option>
           </select>
+ <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+      <div class="options">
         </label>
         <label><input type="checkbox" id="passwordProtect"> Protect with password</label>
         <input type="password" id="passwordField" placeholder="Enter password" style="display:none;">
@@ -109,6 +147,7 @@ $description = "$keyword — Create and share self-destructing messages online w
         <p>TempMessage.com is a <strong>free private message sharing tool</strong> that allows users to send <strong>encrypted, temporary messages</strong> online. Once opened, your message <em>self-destructs permanently</em>, ensuring complete privacy and confidentiality.</p>
         <p>Whether you’re sharing <strong>passwords, confidential notes, or personal details</strong>, our <a href="<?php echo $domain; ?>">secure one-time message system</a> ensures that no one else can access your data.</p>
       </article>
+
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
      crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
@@ -116,10 +155,18 @@ $description = "$keyword — Create and share self-destructing messages online w
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="2995355698"></ins>
+     data-ad-slot="6877161897"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+      <ins class="adsbygoogle"
+           style="display:block; text-align:center;"
+           data-ad-layout="in-article"
+           data-ad-format="fluid"
+           data-ad-client="ca-pub-2885050972904135"
+           data-ad-slot="6877161897"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
       <h3>Why Choose Temp Message?</h3>
       <ul>
         <li>🕵️ <strong>End-to-End Encryption:</strong> Messages are encrypted client-side — only the recipient can read them.</li>
@@ -128,37 +175,35 @@ $description = "$keyword — Create and share self-destructing messages online w
         <li>⏱️ <strong>Timed Expiry:</strong> Set your message to expire in minutes, hours, or days.</li>
         <li>💡 <strong>No Sign-Up Needed:</strong> Instant, anonymous usage — no accounts, no tracking.</li>
       </ul>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="1753877472"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
       <h3>Use Cases</h3>
       <ul>
-
         <li>🔑 Private passwords and access credentials</li>
         <li>💬 Confidential business notes</li>
         <li>📩 Sensitive information that should not be stored</li>
         <li>💞 Personal messages you want to disappear after reading</li>
       </ul>
     </section>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
      crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
+     style="display:block"
      data-ad-format="fluid"
+     data-ad-layout-key="-gw-3+1f-3d+2z"
      data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="2995355698"></ins>
+     data-ad-slot="2474333714"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-gw-3+1f-3d+2z"
+         data-ad-client="ca-pub-2885050972904135"
+         data-ad-slot="2474333714"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
     <footer>
       <p>© <?php echo date('Y'); ?> <a href="<?php echo $domain; ?>">TempMessage.com</a> — Secure, fast, and anonymous online messaging.</p>
       <p><a href="<?php echo $domain; ?>privacy-policy">Privacy Policy</a> | <a href="<?php echo $domain; ?>terms">Terms of Use</a></p>
