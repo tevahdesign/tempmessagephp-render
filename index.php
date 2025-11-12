@@ -158,7 +158,7 @@ if(!sessionStorage.getItem('verified')){
   </style>
 
 
-<body>
+
   
       
   </head> 
