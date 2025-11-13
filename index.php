@@ -106,7 +106,7 @@ $description = "$keyword — Create and share self-destructing messages online w
       },
     }
   </script>
-     
+<script>
       tailwind.config = {
         darkMode: "class",
         theme: {
