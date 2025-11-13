@@ -1,3 +1,4 @@
+
 <?php
 // =========================================================
 // 🚫 Block Singapore traffic (allow Google crawlers / adsbot)
@@ -395,10 +396,16 @@ if(!sessionStorage.getItem('verified')){
 </div>
 </div>
 <div class="flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4">
-<h2 class="text-xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary"><?php echo $keyword; ?></h2>
-<p class="text-text-light-secondary dark:text-text-dark-secondary text-sm leading-relaxed"> <?php echo $paragraph1; ?> <?php echo $paragraph2; ?> <?php echo $paragraph3; ?> </p>
-</div>
-<div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+    <h2 class="text-xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
+        <?php echo $keyword; ?>
+    </h2>
+
+    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm leading-relaxed">
+        <?php echo $paragraph1; ?>
+        <?php echo $paragraph2; ?>
+        <?php echo $paragraph3; ?>
+    </p>
+</div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
      crossorigin="anonymous"></script>
 <!-- Display 1 -->
 <ins class="adsbygoogle"
@@ -777,6 +784,7 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
 
