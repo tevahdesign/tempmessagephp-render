@@ -8,39 +8,56 @@ header("Content-Type: application/xml; charset=utf-8");
 $domain = "https://tempmessage.com/";
 $keywordsFile = __DIR__ . '/keywords.txt';
 
-// If file doesn't exist, show base URL only
+// Slug function (same as index.php)
+function makeSlug($text) {
+    $text = strtolower($text);
+    $text = preg_replace('/[^a-z0-9]+/', '-', $text);
+    return trim($text, '-');
+}
+
+// If no keywords → only homepage in sitemap
 if (!file_exists($keywordsFile)) {
-    echo "<?xml version='1.0' encoding='UTF-8'?>\n";
-    echo "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n";
-    echo "<url><loc>{$domain}</loc></url>\n";
+    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+    echo "  <url>\n";
+    echo "    <loc>{$domain}</loc>\n";
+    echo "    <lastmod>".date("Y-m-d")."</lastmod>\n";
+    echo "  </url>\n";
     echo "</urlset>";
     exit;
 }
 
-// Read file line-by-line (very fast, no heavy loading)
-$handle = fopen($keywordsFile, "r");
-
-echo "<?xml version='1.0' encoding='UTF-8'?>\n";
-echo "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n";
+// Begin sitemap
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
 $today = date('Y-m-d');
+$lines = file($keywordsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-if ($handle) {
-    while (($kw = fgets($handle)) !== false) {
-        $kw = trim($kw);
-        if ($kw === '') continue;
+// Add homepage
+echo "  <url>\n";
+echo "    <loc>{$domain}</loc>\n";
+echo "    <lastmod>{$today}</lastmod>\n";
+echo "    <changefreq>daily</changefreq>\n";
+echo "    <priority>1.0</priority>\n";
+echo "  </url>\n";
 
-        $url = htmlspecialchars($domain . '?q=' . urlencode($kw), ENT_QUOTES, 'UTF-8');
+// Add keyword pages with clean slugs
+foreach ($lines as $kw) {
+    $kw = trim($kw);
+    if ($kw === '') continue;
 
-        echo "  <url>\n";
-        echo "    <loc>{$url}</loc>\n";
-        echo "    <lastmod>{$today}</lastmod>\n";
-        echo "    <changefreq>weekly</changefreq>\n";
-        echo "    <priority>0.8</priority>\n";
-        echo "  </url>\n";
-    }
-    fclose($handle);
+    $slug = makeSlug($kw);
+    $url = $domain . $slug . "/";
+
+    echo "  <url>\n";
+    echo "    <loc>{$url}</loc>\n";
+    echo "    <lastmod>{$today}</lastmod>\n";
+    echo "    <changefreq>weekly</changefreq>\n";
+    echo "    <priority>0.8</priority>\n";
+    echo "  </url>\n";
 }
 
+// Close sitemap
 echo "</urlset>";
 ?>
