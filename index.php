@@ -84,6 +84,16 @@ if ($pathSlug !== "" && $pathSlug !== "index.php") {
 }
 
 $keyword = htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8');
+// =========================================================
+// 📌 Canonical Tag Logic (VERY IMPORTANT FOR INDEXING)
+// =========================================================
+if ($pathSlug !== "" && $pathSlug !== "index.php") {
+    // Keyword page → canonical = full keyword URL
+    $canonical = $domain . $slug . '/';
+} else {
+    // Homepage canonical MUST be exactly the homepage
+    $canonical = $domain;
+}
 
 // =========================================================
 // 🧠 UNIQUE CONTENT GENERATOR (Spintax Engine)
@@ -158,7 +168,7 @@ $title = "$keyword — Free Temporary Email Service";
   <title><?php echo $keyword; ?></title>
 
   <meta name="description" content="<?php echo $metaDescription; ?>" />
-  <link rel="canonical" href="<?php echo $domain . $slug . '/'; ?>" />
+  <link rel="canonical" href="<?php echo $canonical; ?>" />
 
   <meta property="og:title" content="<?php echo $keyword; ?>" />
   <meta property="og:description" content="<?php echo $metaDescription; ?>" />
@@ -767,6 +777,7 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
 
