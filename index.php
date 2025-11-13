@@ -106,32 +106,6 @@ $description = "$keyword — Create and share self-destructing messages online w
       },
     }
   </script>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#137fec",
-              "background-light": "#f6f7f8",
-              "background-dark": "#101922",
-              "surface-light": "#ffffff",
-              "surface-dark": "#18232e",
-              "text-primary-light": "#111418",
-              "text-primary-dark": "#f0f2f4",
-              "text-secondary-light": "#617589",
-              "text-secondary-dark": "#a0b0c1",
-              "border-light": "#e5e7eb",
-              "border-dark": "#343e4a"
-            },
-            fontFamily: {
-              "display": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
-    </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135" crossorigin="anonymous"></script>
   <script type="application/ld+json">
   {
