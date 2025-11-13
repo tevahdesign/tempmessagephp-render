@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /verify
+Disallow: /admin
+Disallow: /*?*
+Crawl-delay: 1
 
 Sitemap: https://tempmessage.com/sitemap.php
