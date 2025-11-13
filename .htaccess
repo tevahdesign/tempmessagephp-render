@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# --- Force non-www version (VERY important for indexing) ---
+RewriteCond %{HTTP_HOST} ^www\.tempmessage\.com$ [NC]
+RewriteRule ^(.*)$ https://tempmessage.com/$1 [L,R=301]
+
 # --- Serve robots.txt directly ---
 RewriteRule ^robots\.txt$ robots.txt [L]
 
