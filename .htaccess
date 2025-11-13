@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Redirect www → non-www
+RewriteCond %{HTTP_HOST} ^www\.tempmessage\.com [NC]
+RewriteRule ^(.*)$ https://tempmessage.com/$1 [L,R=301]
+
+# Clean SEO URLs → convert slug to keyword
+RewriteRule ^([^/]+)/?$ index.php?q=$1 [L,QSA]
