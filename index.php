@@ -132,20 +132,19 @@ $metaDescription = spinx(
 
 $title = "$keyword — Free Temporary Email Service";
 
-?>
-<!doctype html>
+?><!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title><?php echo $title; ?></title>
+  <title><?php echo $keyword; ?></title>
 
   <meta name="description" content="<?php echo $metaDescription; ?>" />
   <link rel="canonical" href="<?php echo $domain . $slug . '/'; ?>" />
 
-  <meta property="og:title" content="<?php echo $title; ?>" />
+  <meta property="og:title" content="<?php echo $keyword; ?>" />
   <meta property="og:description" content="<?php echo $metaDescription; ?>" />
   <meta property="og:url" content="<?php echo $domain . $slug . '/'; ?>" />
   <link rel="stylesheet" href="assets/style.css" />
@@ -240,7 +239,7 @@ if(!sessionStorage.getItem('verified')){
 <main class="p-4 flex flex-col gap-6">
 <div class="flex flex-wrap justify-between gap-3 text-center">
 <div class="flex w-full flex-col gap-1">
-<h1 class="text-text-light-primary dark:text-text-dark-primary text-xl font-black leading-tight tracking-[-0.033em]"> <?php echo $title; ?> </h1>
+<h1 class="text-text-light-primary dark:text-text-dark-primary text-xl font-black leading-tight tracking-[-0.033em]"> <?php echo $keyword; ?> </h1>
 
 </div>
 </div>
@@ -752,6 +751,10 @@ createAccount();
 });
 </script>
 </body></html>
+
+
+
+
 
 
 
