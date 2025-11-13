@@ -1,18 +1,18 @@
 RewriteEngine On
 
-# --- Allow direct access to robots.txt ---
-RewriteRule ^robots\.txt$ /robots.txt [L]
+# --- Serve robots.txt directly ---
+RewriteRule ^robots\.txt$ robots.txt [L]
 
-# --- Allow direct access to sitemap files ---
-RewriteRule ^sitemap\.xml$ /sitemap.xml [L]
-RewriteRule ^sitemap\.php$ /sitemap.php [L]
-RewriteRule ^sitemap_index\.xml$ /sitemap_index.xml [L]
+# --- Serve sitemap files directly (NO leading slash!) ---
+RewriteRule ^sitemap\.php$ sitemap.php [L]
+RewriteRule ^sitemap\.xml$ sitemap.xml [L]
+RewriteRule ^sitemap_index\.xml$ sitemap_index.xml [L]
 
-# --- If the request is a REAL file, serve it ---
+# --- If the request is an actual file, stop rewriting ---
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# --- If the request is a REAL directory, serve it ---
+# --- If the request is an actual directory, stop rewriting ---
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
