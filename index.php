@@ -64,14 +64,14 @@ if (!$isBot && empty($_SESSION['verified'])) {
 }
 
 // =========================================================
-// 🌍 NEW FEATURE: TIER-1 ONLY TRAFFIC BOOSTER
+// 🌍 TIER-1 ONLY TRAFFIC BOOSTER (Google ALWAYS allowed)
 // =========================================================
 if (!$isBot) {
 
     $ip = getClientIP();
     $cacheFile = sys_get_temp_dir() . "/geo_{$ip}_tier1.json";
 
-    if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 1800) { // 30 min cache
+    if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 1800) { 
         $geo = json_decode(file_get_contents($cacheFile), true);
     } else {
         $resp = @file_get_contents("http://ip-api.com/json/{$ip}?fields=status,countryCode");
@@ -79,13 +79,24 @@ if (!$isBot) {
         if ($geo) file_put_contents($cacheFile, json_encode($geo));
     }
 
-    // Allowed Tier-1 countries
-    $tier1 = ['US','GB','CA','AU','DE'];
+    // Allowed FULL Tier-1 countries
+    $tier1 = [
+        'US','GB','CA','AU','NZ','DE','FR','NL',
+        'SE','CH','NO','DK','FI','BE','AT','IE'
+    ];
 
-    // ❌ Non-Tier-1 users → LITE MODE page (Google safe)
+    // ❌ Non-Tier1 humans → blocked
+    // ✔ Bots → allowed full content
     if (!in_array($geo['countryCode'] ?? 'XX', $tier1)) {
 
-       
+        if ($isBot) {
+            // Bot sees full content
+        } else {
+            // Human non-Tier1 blocked
+            http_response_code(403);
+            echo "<h1>Access Restricted</h1>";
+            exit;
+        }
     }
 }
 
@@ -211,6 +222,7 @@ $title = "$keyword — Free Temporary Email Service";
 
 ?>
 <?php ob_end_flush(); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -838,5 +850,6 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
