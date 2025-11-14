@@ -1,24 +1,17 @@
 RewriteEngine On
 
-# --- Force non-www version (VERY important for indexing) ---
-RewriteCond %{HTTP_HOST} ^www\.tempmessage\.com$ [NC]
-RewriteRule ^(.*)$ https://tempmessage.com/$1 [L,R=301]
+# ---------------------------------------------------------
+# Force HTTPS (no loop)
+# ---------------------------------------------------------
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
 
-# --- Serve robots.txt directly ---
-RewriteRule ^robots\.txt$ robots.txt [L]
+# ---------------------------------------------------------
+# Force WWW (no loop)
+# ---------------------------------------------------------
+RewriteCond %{HTTP_HOST} !^www\.tempmessage\.com$ [NC]
+RewriteRule ^(.*)$ https://www.tempmessage.com/$1 [L,R=301]
 
-# --- Serve sitemap files directly (NO leading slash!) ---
-RewriteRule ^sitemap\.php$ sitemap.php [L]
-RewriteRule ^sitemap\.xml$ sitemap.xml [L]
-RewriteRule ^sitemap_index\.xml$ sitemap_index.xml [L]
-
-# --- If the request is an actual file, stop rewriting ---
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
-# --- If the request is an actual directory, stop rewriting ---
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-# --- Everything else → index.php ---
-RewriteRule ^ index.php [L]
+# ---------------------------------------------------------
+# Your normal rules can go below (no redirects above this point)
+# ---------------------------------------------------------
