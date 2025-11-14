@@ -1,5 +1,19 @@
 
 <?php
+session_start();
+
+// ===========================================
+// ✅ JavaScript Verification Endpoint
+// URL: /?verify_token=XXXX
+// ===========================================
+if (isset($_GET['verify_token'])) {
+    if (!empty($_GET['verify_token'])) {
+        $_SESSION['verified'] = true;
+        echo "ok";
+        exit;
+    }
+}
+
 // =========================================================
 // 🛡 ALWAYS ALLOW SEARCH ENGINE BOTS (Google safe)
 // =========================================================
@@ -25,9 +39,9 @@ function getClientIP() {
 }
 
 // =========================================================
-// 🚫 BLOCK SINGAPORE TRAFFIC (non-bot)
+// 🚫 BLOCK SINGAPORE TRAFFIC (non-bot + non-verified)
 // =========================================================
-if (!$isBot) {
+if (!$isBot && empty($_SESSION['verified'])) {
 
     $ip = getClientIP();
     $cacheFile = sys_get_temp_dir() . "/geo_{$ip}_sg.json";
@@ -203,6 +217,7 @@ $metaDescription = spinx(
 $title = "$keyword — Free Temporary Email Service";
 
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -274,15 +289,17 @@ $title = "$keyword — Free Temporary Email Service";
     }
   }
   </script>
-    <script>
-if(!sessionStorage.getItem('verified')){
-  const token = btoa(Date.now());
-  fetch('/verify?token='+token).then(()=> {
-    sessionStorage.setItem('verified', token);
-    location.reload();
-  });
+   <script>
+if (!sessionStorage.getItem('verified')) {
+    const token = btoa(Date.now());
+    fetch('/?verify_token=' + token)
+        .then(() => {
+            sessionStorage.setItem('verified', token);
+            location.reload();
+        });
 }
 </script>
+
 
 
 
@@ -828,6 +845,7 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
 
