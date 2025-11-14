@@ -43,7 +43,7 @@ function makeSlug($text) {
 // =========================================================
 // 🌐 Keyword System (50,000 Programmatic Pages)
 // =========================================================
-$domain = "https://tempmessage.com/";
+$domain = "https://www.tempmessage.com/";
 $keywordsFile = __DIR__ . '/keywords.txt';
 
 $keywordsList = file_exists($keywordsFile)
@@ -783,6 +783,7 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
 
