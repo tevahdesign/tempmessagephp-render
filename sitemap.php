@@ -7,7 +7,7 @@ ini_set('max_execution_time', '300');
 
 header("Content-Type: application/xml; charset=utf-8");
 
-$domain = "https://www.tempmessage.com/"; // ONLY WWW DOMAIN
+$domain = "https://tempmessage.com/"; // ONLY WWW DOMAIN
 
 $keywordsFile = __DIR__ . '/keywords.txt';
 
