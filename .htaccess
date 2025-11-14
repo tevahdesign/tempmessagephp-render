@@ -4,14 +4,14 @@ RewriteEngine On
 # Force HTTPS (no loop)
 # ---------------------------------------------------------
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+RewriteRule ^(.*)$ https://tempmessage.com/$1 [L,R=301]
 
 # ---------------------------------------------------------
-# Force WWW (no loop)
+# Remove WWW (no loop)
 # ---------------------------------------------------------
-RewriteCond %{HTTP_HOST} !^www\.tempmessage\.com$ [NC]
-RewriteRule ^(.*)$ https://www.tempmessage.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.tempmessage\.com$ [NC]
+RewriteRule ^(.*)$ https://tempmessage.com/$1 [L,R=301]
 
 # ---------------------------------------------------------
-# Your normal rules can go below (no redirects above this point)
+# Your normal rules can go below
 # ---------------------------------------------------------
