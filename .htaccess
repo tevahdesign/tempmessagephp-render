@@ -1,24 +1,36 @@
 RewriteEngine On
 
-# --- Force non-www version (VERY important for indexing) ---
-RewriteCond %{HTTP_HOST} ^www\.tempmessage\.com$ [NC]
-RewriteRule ^(.*)$ https://tempmessage.com/$1 [L,R=301]
+# -----------------------------------------------------------
+# 🔁 FORCE WWW VERSION (very important for SEO canonicalization)
+# -----------------------------------------------------------
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.tempmessage.com/$1 [L,R=301]
 
-# --- Serve robots.txt directly ---
+# -----------------------------------------------------------
+# 📄 Serve robots.txt directly
+# -----------------------------------------------------------
 RewriteRule ^robots\.txt$ robots.txt [L]
 
-# --- Serve sitemap files directly (NO leading slash!) ---
+# -----------------------------------------------------------
+# 🗺 Serve sitemap files directly (NO leading slash)
+# -----------------------------------------------------------
 RewriteRule ^sitemap\.php$ sitemap.php [L]
 RewriteRule ^sitemap\.xml$ sitemap.xml [L]
 RewriteRule ^sitemap_index\.xml$ sitemap_index.xml [L]
 
-# --- If the request is an actual file, stop rewriting ---
+# -----------------------------------------------------------
+# 🧱 Stop rewriting if real file exists
+# -----------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# --- If the request is an actual directory, stop rewriting ---
+# -----------------------------------------------------------
+# 🗂 Stop rewriting if real directory exists
+# -----------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# --- Everything else → index.php ---
+# -----------------------------------------------------------
+# ▶ Everything else → index.php
+# -----------------------------------------------------------
 RewriteRule ^ index.php [L]
