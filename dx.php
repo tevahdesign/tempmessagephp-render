@@ -423,3 +423,4 @@ if(!sessionStorage.getItem('verified')){
 <div class="flex flex-col gap-2 p-3 rounded-xl bg-card-light dark:bg-card-dark">
 <div class="flex items-center gap-2">
 <span class="material-symb
+
