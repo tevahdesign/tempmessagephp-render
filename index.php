@@ -1,7 +1,8 @@
 
 <?php
-session_start();
 
+session_start();
+ob_start();
 // ===========================================
 // ✅ JavaScript Verification Endpoint
 // URL: /?verify_token=XXXX
@@ -845,6 +846,7 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
 
