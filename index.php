@@ -247,6 +247,7 @@ $title = "$keyword — Free Temporary Email Service";
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
+    
  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
@@ -281,6 +282,51 @@ $title = "$keyword — Free Temporary Email Service";
       },
     }
   </script>
+    <script async 
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+crossorigin="anonymous"></script>
+    <script>
+function loadAd(slotId) {
+    const container = document.getElementById("geo-ad");
+
+    container.innerHTML = `
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2885050972904135"
+             data-ad-slot="${slotId}"
+             data-ad-format="autorelaxed"></ins>
+    `;
+
+    // Lazy load + parallel queue
+    let observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                observer.unobserve(container);
+            }
+        });
+    });
+
+    observer.observe(container);
+}
+
+// Detect country
+fetch("https://ipapi.co/country/")
+.then(r => r.text())
+.then(country => {
+    country = country.trim();
+
+    if (country === "US") {
+        loadAd("2748793747");   // high-value US ad slot (you can change)
+    }
+    else if (country === "IN") {
+        loadAd("2748793747");   // India traffic – same slot or new slot
+    }
+    else {
+        loadAd("2748793747");   // default
+    }
+});
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135" crossorigin="anonymous"></script>
   <script type="application/ld+json">
@@ -331,16 +377,7 @@ if (!sessionStorage.getItem('verified')) {
 </div>
 <h2 class="text-base font-bold leading-tight tracking-[-0.015em]">Temp Message</h2>
 </div>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="5374957085"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    <div id="geo-ad" style="min-height:300px;"></div>
 <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 w-9 bg-background-light dark:bg-card-dark text-text-light-primary dark:text-text-dark-primary text-sm font-bold leading-normal tracking-[0.015em]">
 <span class="material-symbols-outlined !text-2xl">menu</span>
 </button>
@@ -864,6 +901,7 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
 
