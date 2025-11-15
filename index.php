@@ -310,7 +310,8 @@ if (!sessionStorage.getItem('verified')) {
 
   
       
-  </head> 
+  </head>
+    
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
@@ -325,6 +326,16 @@ if (!sessionStorage.getItem('verified')) {
 </div>
 <h2 class="text-base font-bold leading-tight tracking-[-0.015em]">Temp Message</h2>
 </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-2885050972904135"
+     data-ad-slot="5374957085"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 w-9 bg-background-light dark:bg-card-dark text-text-light-primary dark:text-text-dark-primary text-sm font-bold leading-normal tracking-[0.015em]">
 <span class="material-symbols-outlined !text-2xl">menu</span>
 </button>
@@ -338,13 +349,11 @@ if (!sessionStorage.getItem('verified')) {
 </div>
 <div> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
      crossorigin="anonymous"></script>
-<!-- Slot1 -->
 <ins class="adsbygoogle"
      style="display:block"
+     data-ad-format="autorelaxed"
      data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="6059490978"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     data-ad-slot="2748793747"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script></div>
@@ -850,6 +859,7 @@ createAccount();
 });
 </script>
 </body></html>
+
 
 
 
