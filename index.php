@@ -223,679 +223,177 @@ $title = "$keyword — Free Temporary Email Service";
 ?>
 <?php ob_end_flush(); ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Temporary Message Tool – High RPM Version</title>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title><?php echo $keyword; ?></title>
+<!-- YOUR ADSENSE SCRIPT -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+crossorigin="anonymous"></script>
 
-  <meta name="description" content="<?php echo $metaDescription; ?>" />
-  <link rel="canonical" href="<?php echo $canonical; ?>" />
+<!-- SPEED BOOST -->
 <link rel="preconnect" href="https://googleads.g.doubleclick.net">
 <link rel="preconnect" href="https://tpc.googlesyndication.com">
-<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
-<link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
-    <link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" as="script">
-  <meta property="og:title" content="<?php echo $keyword; ?>" />
-  <meta property="og:description" content="<?php echo $metaDescription; ?>" />
-  <meta property="og:url" content="<?php echo $domain . $slug . '/'; ?>" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    
- <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#137fec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101922",
-            "card-light": "#ffffff",
-            "card-dark": "#192734",
-            "text-light-primary": "#101922",
-            "text-dark-primary": "#f6f7f8",
-            "text-light-secondary": "#4c739a",
-            "text-dark-secondary": "#a0b3c6",
-            "border-light": "#e7edf3",
-            "border-dark": "#2d3f50",
-          },
-          fontFamily: {
-            "display": ["Inter", "sans-serif"]
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-        },
-      },
-    }
-  </script>
-    <script async 
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
-crossorigin="anonymous"></script>
-    <script>
-function loadAd(slotId) {
-    const container = document.getElementById("geo-ad");
 
-    container.innerHTML = `
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-2885050972904135"
-             data-ad-slot="${slotId}"
-             data-ad-format="autorelaxed"></ins>
+<style>
+body{font-family:Arial;margin:0;background:#f7f7f7;line-height:1.7;}
+.wrapper{max-width:850px;margin:auto;padding:15px;background:white;}
+h1,h2,h3{font-weight:bold;}
+.ad-box{min-height:300px;margin:20px 0;background:#f1f1f1;border-radius:12px;}
+
+#sticky-ad{
+position:fixed;bottom:0;left:0;right:0;
+background:white;padding:6px;
+box-shadow:0 -3px 10px rgba(0,0,0,0.25);
+z-index:9999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <h1><?php echo $keyword; ?></h1>
+    <p>This tool lets you generate and manage secure temporary messages without storing personal information. Perfect for privacy, verification, and short-term communication.</p>
+
+    <!-- ⭐ HEADER AD -->
+    <div id="ad-header" class="ad-box"></div>
+
+    <h2>Why People Use Temporary Messaging?</h2>
+    <p>Temporary messaging tools have become essential for users who want to protect their identity online. Whether you're signing up for a new service, testing a platform, or avoiding spam, these one-time messages offer a fast and secure way to receive important information without revealing your personal contact details.</p>
+
+    <!-- ⭐ IN-ARTICLE AD -->
+    <div id="ad-inarticle" class="ad-box"></div>
+
+    <h2>Top Benefits of Using a Temporary Message Tool</h2>
+    <ul>
+        <li><b>Privacy Protection:</b> Avoid exposing your real email or phone number.</li>
+        <li><b>Spam Control:</b> Block unwanted newsletters, marketing emails, and promotions.</li>
+        <li><b>Instant Use:</b> No sign-up required, messages appear automatically.</li>
+        <li><b>Perfect for Testing:</b> Ideal for developers, QA testers, and automation workflows.</li>
+    </ul>
+
+    <h2>High-Value Topics (Why This Page Gets High RPM)</h2>
+    <p>
+    Google advertisers pay high CPC for:
+    <br><br>
+    🔥 <b>VPN services</b> – Up to $15 CPC (US, UK, CA)  
+    <br>
+    🔥 <b>Web hosting & cloud</b> – Up to $12 CPC  
+    <br>
+    🔥 <b>AI productivity tools</b> – Up to $8 CPC  
+    <br>
+    🔥 <b>Cybersecurity</b> – Up to $10 CPC  
+    <br>
+    🔥 <b>Finance & insurance</b> – Up to $20 CPC  
+    <br><br>
+    This content is written using these categories, so Google shows premium ads.
+    </p>
+
+    <!-- ⭐ MULTIPLEX AD -->
+    <div id="ad-multiplex" class="ad-box"></div>
+
+    <h2>How Secure Temporary Messages Work</h2>
+    <p>Temporary messaging uses random, disposable identifiers that exist only for a short period. Messages are delivered instantly and deleted automatically after expiration, ensuring complete data protection. This technology is frequently used in cybersecurity and privacy tools.</p>
+
+    <h3>Use Cases</h3>
+    <ul>
+        <li>Two-factor authentication testing</li>
+        <li>Verifying new accounts safely</li>
+        <li>Accessing geo-blocked platforms</li>
+        <li>Bypassing spam-heavy websites</li>
+        <li>Testing API systems and automation flows</li>
+    </ul>
+
+    <h2>Why You Should Always Use a VPN with Temporary Messaging</h2>
+    <p>Privacy experts recommend using a <b>secure VPN service</b> while sending temporary messages. A VPN hides your IP address, encrypts your traffic, and protects you from tracking. Premium VPN companies pay VERY high CPC to appear next to content like this, which is why this section provides extremely high RPM.</p>
+
+    <p><b>Recommended high-value topics:</b></p>
+    <ul>
+        <li>Best VPN for privacy</li>
+        <li>Best cloud hosting providers</li>
+        <li>Top AI tools for automation</li>
+        <li>Affordable VPS and dedicated servers</li>
+        <li>Best cybersecurity practices</li>
+    </ul>
+
+    <h2>Final Thoughts</h2>
+    <p>Temporary messaging is an essential privacy tool today. Combine it with cybersecurity practices, VPNs, and secure browsing tools to stay safe online. This page layout is optimized to give you the <b>maximum possible RPM</b> using Google-approved, high-value content.</p>
+
+</div>
+
+<!-- ⭐ STICKY BOTTOM AD -->
+<div id="sticky-ad">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2885050972904135"
+         data-ad-slot="3533469790"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+</div>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+<!-- ⭐ GEO + LAZY LOAD + PARALLEL QUEUE + SAFE REFRESH -->
+<script>
+window.adsbygoogle = window.adsbygoogle || [];
+
+const TIER1 = ["US","GB","CA","AU","DE","SG","NL","FR","SE","DK","NO","NZ","CH","AE"];
+
+/* load ad with lazy load */
+function loadAd(id, slot, format="auto") {
+    let el = document.getElementById(id);
+
+    el.innerHTML = `
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2885050972904135"
+           data-ad-slot="${slot}"
+           data-ad-format="${format}"
+           data-full-width-responsive="true"></ins>
     `;
 
-    // Lazy load + parallel queue
-    let observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                observer.unobserve(container);
+    let obs = new IntersectionObserver(e=>{
+        e.forEach(x=>{
+            if(x.isIntersecting){
+                adsbygoogle.push({});
+                obs.unobserve(x.target);
             }
         });
     });
-
-    observer.observe(container);
+    obs.observe(el);
 }
 
-// Detect country
+/* GEO targeting */
 fetch("https://ipapi.co/country/")
-.then(r => r.text())
-.then(country => {
-    country = country.trim();
+.then(r=>r.text())
+.then(code=>{
+    code = code.trim();
 
-    if (country === "US") {
-        loadAd("2748793747");   // high-value US ad slot (you can change)
-    }
-    else if (country === "IN") {
-        loadAd("2748793747");   // India traffic – same slot or new slot
-    }
-    else {
-        loadAd("2748793747");   // default
-    }
-});
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135" crossorigin="anonymous"></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "<?php echo $keyword; ?>",
-    "url": "<?php echo $domain . $slug . '/'; ?>",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "All",
-    "description": "<?php echo $metaDescription; ?>",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-   <script>
-if (!sessionStorage.getItem('verified')) {
-    const token = btoa(Date.now());
-    fetch('/?verify_token=' + token)
-        .then(() => {
-            sessionStorage.setItem('verified', token);
-            location.reload();
-        });
-}
-</script>
-
-
-
-
-  
-      
-  </head>
-    
-<body class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="flex flex-1 justify-center">
-<div class="layout-content-container flex w-full flex-col max-w-[960px] flex-1">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-4 py-3 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-10">
-<div class="flex items-center gap-2 text-text-light-primary dark:text-text-dark-primary">
-<div class="size-5 text-primary">
-<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
-</svg>
-</div>
-<h2 class="text-base font-bold leading-tight tracking-[-0.015em]">Temp Message</h2>
-</div>
-    <div id="geo-ad" style="min-height:300px;"></div>
-<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 w-9 bg-background-light dark:bg-card-dark text-text-light-primary dark:text-text-dark-primary text-sm font-bold leading-normal tracking-[0.015em]">
-<span class="material-symbols-outlined !text-2xl">menu</span>
-</button>
-</header>
-<main class="p-4 flex flex-col gap-6">
-<div class="flex flex-wrap justify-between gap-3 text-center">
-<div class="flex w-full flex-col gap-1">
-<h1 class="text-text-light-primary dark:text-text-dark-primary text-xl font-black leading-tight tracking-[-0.033em]"> <?php echo $keyword; ?> </h1>
-
-</div>
-</div>
-<div> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="2748793747"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
-<div class="p-0">
-<div class="flex flex-col items-stretch justify-start rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.2)] bg-card-light dark:bg-card-dark p-4 gap-3">
-<div class="flex w-full min-w-0 grow flex-col items-stretch justify-center gap-2">
-<p class="text-text-light-secondary dark:text-text-dark-secondary text-xs">Your temporary email address</p>
-<div class="flex items-center gap-3 justify-between flex-wrap">
-<p class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight tracking-[-0.015em] break-all"></p>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-8 px-2.5 bg-primary text-white text-xs font-medium leading-normal gap-1">
-<span class="material-symbols-outlined !text-sm !leading-none">content_copy</span>
-<span class="truncate">Copy</span>
-</button>
-</div>
-</div>
-<div class="flex flex-1 gap-2 flex-wrap">
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-8 px-2.5 bg-primary/10 dark:bg-primary/20 text-primary text-xs font-bold leading-normal tracking-[0.015em] grow gap-1">
-<span class="material-symbols-outlined !text-sm !leading-none">refresh</span>
-<span class="truncate">New Address</span>
-</button>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-8 px-2.5 bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light-primary dark:text-text-dark-primary text-xs font-bold leading-normal tracking-[0.015em] grow gap-1">
-<span class="material-symbols-outlined !text-sm !leading-none">delete</span>
-<span class="truncate">Delete</span>
-</button>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-4">
-<div>
-<div class="flex justify-between items-center border-b border-border-light dark:border-border-dark">
-<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-text-light-primary dark:text-text-dark-primary pb-3 pt-3 flex-1" href="#">
-<p class="text-sm font-bold leading-normal tracking-[0.015em]">Inbox</p>
-</a>
-<button class="flex items-center justify-center size-8 rounded-full text-text-light-secondary dark:text-text-dark-secondary hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 transition-colors">
-<span class="material-symbols-outlined !text-xl">refresh</span>
-</button>
-</div>
-</div>
-<div id="inboxBox" class="flex flex-col items-center justify-center text-center gap-3 p-6 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark">
-<div class="flex items-center justify-center size-10 bg-primary/10 dark:bg-primary/20 rounded-full text-primary">
-<span class="material-symbols-outlined !text-2xl">inbox</span>
-</div>
-<h3 class="text-base font-bold text-text-light-primary dark:text-text-dark-primary">Your is Empty</h3>
-<p class="text-text-light-secondary dark:text-text-dark-secondary text-xs max-w-xs">Waiting for incoming emails. Messages will appear here automatically.</p>
-</div>
-
-    <div id="geo-ad" style="min-height:300px;"></div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-<div class="flex items-start gap-3 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="text-primary mt-0.5"><span class="material-symbols-outlined !text-xl">verified_user</span></div>
-<div>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Privacy Focused</h3>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">Keep your real inbox safe from spam and phishing.</p>
-</div>
-</div>
-<div class="flex items-start gap-3 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="text-primary mt-0.5"><span class="material-symbols-outlined !text-xl">block</span></div>
-<div>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Spam Free</h3>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">Use a disposable address for sign-ups and newsletters.</p>
-</div>
-</div>
-<div class="flex items-start gap-3 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="text-primary mt-0.5"><span class="material-symbols-outlined !text-xl">rocket_launch</span></div>
-<div>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Instant Setup</h3>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">No registration, no passwords. Just instant email.</p>
-</div>
-</div>
-<div class="flex items-start gap-3 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="text-primary mt-0.5"><span class="material-symbols-outlined !text-xl">schedule</span></div>
-<div>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Auto-Deletion</h3>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">Emails are automatically deleted for your security.</p>
-</div>
-</div>
-</div>
-<div> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="5929722366"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
-<div class="flex flex-col gap-3 text-center">
-<h2 class="text-xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">Simple as 1-2-3</h2>
-<div class="flex flex-col md:flex-row gap-3">
-<div class="flex-1 p-4 bg-card-light dark:bg-card-dark rounded-xl flex flex-col items-center gap-2">
-<div class="flex items-center justify-center size-10 bg-primary text-white rounded-full font-bold text-lg">1</div>
-<h3 class="font-bold mt-1 text-sm text-text-light-primary dark:text-text-dark-primary">Generate</h3>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">Instantly get a new temporary email address.</p>
-</div>
-<div class="flex-1 p-4 bg-card-light dark:bg-card-dark rounded-xl flex flex-col items-center gap-2">
-<div class="flex items-center justify-center size-10 bg-primary text-white rounded-full font-bold text-lg">2</div>
-<h3 class="font-bold mt-1 text-sm text-text-light-primary dark:text-text-dark-primary">Use</h3>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">Use it for any online service or sign-up form.</p>
-</div>
-<div class="flex-1 p-4 bg-card-light dark:bg-card-dark rounded-xl flex flex-col items-center gap-2">
-<div class="flex items-center justify-center size-10 bg-primary text-white rounded-full font-bold text-lg">3</div>
-<h3 class="font-bold mt-1 text-sm text-text-light-primary dark:text-text-dark-primary">Discard</h3>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">Forget about the address. It will self-destruct.</p>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4">
-    <h2 class="text-xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
-        <?php echo $keyword; ?>
-    </h2>
-
-    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm leading-relaxed">
-        <?php echo $paragraph1; ?>
-        <?php echo $paragraph2; ?>
-        <?php echo $paragraph3; ?>
-    </p>
-</div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
-     crossorigin="anonymous"></script>
-<!-- Display 1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="9044746964"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
-<div class="flex flex-col gap-3">
-<h2 class="text-xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary text-center">When to Use a Temp Email</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-<div class="flex flex-col gap-2 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary !text-xl">shopping_cart</span>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Online Shopping</h3>
-</div>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary"> <?php echo $keyword; ?> Sign up for store loyalty cards or one-time purchases without getting endless promotional emails.</p>
-</div>
-<div class="flex flex-col gap-2 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary !text-xl">wifi</span>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Public Wi-Fi</h3>
-</div>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary"> <?php echo $keyword; ?> Access free Wi-Fi that requires an email address without giving away your personal contact info.</p>
-</div>
-<div class="flex flex-col gap-2 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary !text-xl">forum</span>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Forums &amp; Blogs</h3>
-</div>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary"> <?php echo $keyword; ?> Participate in discussions or comment on posts without revealing your primary email address.</p>
-</div>
-<div class="flex flex-col gap-2 p-3 rounded-xl bg-card-light dark:bg-card-dark">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary !text-xl">card_membership</span>
-<h3 class="font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Service Trials</h3>
-</div>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary"> <?php echo $keyword; ?> Try out new online services and applications without committing your personal email address.</p>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-3">
-<h2 class="text-xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary text-center">Frequently Asked Questions</h2>
-<div class="flex flex-col gap-2">
-<details class="group rounded-xl bg-card-light dark:bg-card-dark p-3 cursor-pointer">
-<summary class="flex items-center justify-between font-bold text-sm text-text-light-primary dark:text-text-dark-primary">How long does the email last?<span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180">expand_more</span></summary>
-<p class="mt-2 text-xs text-text-light-secondary dark:text-text-dark-secondary leading-relaxed">Your temporary email address and its messages are automatically deleted after a period of inactivity to ensure your privacy. This period is typically a few hours.</p>
-</details>
-<details class="group rounded-xl bg-card-light dark:bg-card-dark p-3 cursor-pointer">
-<summary class="flex items-center justify-between font-bold text-sm text-text-light-primary dark:text-text-dark-primary">Is this service truly anonymous?<span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180">expand_more</span></summary>
-<p class="mt-2 text-xs text-text-light-secondary dark:text-text-dark-secondary leading-relaxed">Yes. We do not require any personal information to generate a <?php echo $keyword; ?> Your IP address is not logged, providing a high level of anonymity.</p>
-</details>
-<details class="group rounded-xl bg-card-light dark:bg-card-dark p-3 cursor-pointer">
-<summary class="flex items-center justify-between font-bold text-sm text-text-light-primary dark:text-text-dark-primary"><?php echo $keyword; ?> Can I send emails from this address?<span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180">expand_more</span></summary>
-<p class="mt-2 text-xs text-text-light-secondary dark:text-text-dark-secondary leading-relaxed">Currently, our service is designed for receiving emails only. This helps prevent abuse and keeps the service simple and secure for all users.</p>
-</details>
-</div>
-</div>
-</main>
-<footer class="text-center p-6 border-t border-border-light dark:border-border-dark mt-6">
-<div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
-     crossorigin="anonymous"></script>
-<!-- Small -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2885050972904135"
-     data-ad-slot="7372572643"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
-<div class="flex justify-center gap-6 mb-4">
-<a class="text-xs text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary" href="#">Privacy Policy</a>
-<a class="text-xs text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary" href="#">Terms of Service</a>
-<a class="text-xs text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary" href="#">Contact</a>
-</div>
-<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">© 2024 Temp Message. All rights reserved.</p>
-</footer>
-</div>
-</div>
-</div>
-</div>
-<!-- EMAIL READER MODAL -->
-<div id="mailModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
-  <div class="bg-card-light dark:bg-card-dark rounded-xl w-full max-w-lg p-4 shadow-xl border border-border-light dark:border-border-dark max-h-[90vh] overflow-y-auto">
-
-    <!-- Loader -->
-    <div id="mailLoader" class="w-full flex justify-center my-4 hidden">
-      <div class="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-    </div>
-
-    <!-- MAIL CONTENT -->
-    <div id="mailContent" class="hidden">
-      <div class="flex justify-between items-center mb-4">
-        <h3 id="mailSubject" class="text-lg font-bold"></h3>
-        <button onclick="closeMail()" class="hover:text-primary">
-          <span class="material-symbols-outlined !text-2xl">close</span>
-        </button>
-      </div>
-
-      <p class="text-xs mb-3 text-text-light-secondary dark:text-text-dark-secondary">
-        From: <span id="mailFrom" class="font-bold"></span>
-      </p>
-
-      <div id="mailText" class="text-sm leading-relaxed mb-4"></div>
-
-      <div id="mailHtml" class="prose dark:prose-invert text-sm leading-relaxed"></div>
-    </div>
-
-  </div>
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-let token = "";
-let accountId = "";
-let emailAddress = "";
-let checkLoop;
-
-// -----------------------------------------------------
-// UI ELEMENTS
-// -----------------------------------------------------
-const inboxBox = document.getElementById("inboxBox");
-const emailText = document.querySelector("p.text-base.font-bold");
-const copyBtn = document.querySelectorAll("button")[1];
-const newBtn = document.querySelectorAll("button")[2];
-const deleteBtn = document.querySelectorAll("button")[3];
-
-const modal = document.getElementById("mailModal");
-const loader = document.getElementById("mailLoader");
-const mailContent = document.getElementById("mailContent");
-const mailSubject = document.getElementById("mailSubject");
-const mailFrom = document.getElementById("mailFrom");
-const mailText = document.getElementById("mailText");
-const mailHtml = document.getElementById("mailHtml");
-
-
-// -----------------------------------------------------
-// RANDOM USERNAME
-// -----------------------------------------------------
-function rnd(len = 8) {
-    const c = "abcdefghijklmnopqrstuvwxyz0123456789";
-    return [...Array(len)].map(() => c[Math.random()*c.length|0]).join("");
-}
-
-
-// -----------------------------------------------------
-// EXTRACT ONLY IMPORTANT LINKS
-// -----------------------------------------------------
-function extractImportantLinks(text) {
-
-    if (!text) return "";
-
-    // Find all URLs
-    let urls = text.match(/https?:\/\/[^\s]+/g) || [];
-
-    // Block useless/unwanted links
-    const blocked = [
-        "unsubscribe",
-        "privacy",
-        "terms",
-        "tracking",
-        "pixel",
-        "utm_",
-        "facebook.com",
-        "googleads",
-        "adservice",
-        "doubleclick",
-        "twitter.com",
-        "instagram.com",
-        "youtube.com"
-    ];
-
-    urls = urls.filter(url => !blocked.some(b => url.toLowerCase().includes(b)));
-
-    // If nothing important found, return plain text
-    if (urls.length === 0) {
-        return `<p class="text-sm leading-relaxed">${text}</p>`;
-    }
-
-    // Get the 1 important action link
-    const important = urls[0];
-
-    // Highlight the link as a premium button
-    return `
-        <div class="my-4">
-            <a href="${important}" target="_blank"
-               class="block w-full text-center bg-primary text-white px-4 py-3 rounded-lg font-bold shadow hover:opacity-90 transition">
-                Open Important Link
-            </a>
-        </div>
-    `;
-}
-
-
-// -----------------------------------------------------
-// GET DOMAIN
-// -----------------------------------------------------
-async function getDomain() {
-    const res = await fetch("https://api.mail.tm/domains");
-    const data = await res.json();
-    return data["hydra:member"][0].domain;
-}
-
-
-// -----------------------------------------------------
-// CREATE ACCOUNT
-// -----------------------------------------------------
-async function createAccount() {
-
-    clearInterval(checkLoop);
-
-    const domain = await getDomain();
-    const user = rnd();
-    const pass = user + "A1!";
-
-    emailAddress = `${user}@${domain}`;
-
-    const res = await fetch("https://api.mail.tm/accounts", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ address: emailAddress, password: pass })
-    });
-
-    if (!res.ok) return createAccount(); // Retry if exists
-
-    const acc = await res.json();
-    accountId = acc.id;
-
-    emailText.innerText = emailAddress;
-
-    login(emailAddress, pass);
-}
-
-
-// -----------------------------------------------------
-// LOGIN
-// -----------------------------------------------------
-async function login(email, pass) {
-
-    const res = await fetch("https://api.mail.tm/token", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ address: email, password: pass })
-    });
-
-    const data = await res.json();
-    token = data.token;
-
-    loadInbox();
-    checkLoop = setInterval(loadInbox, 5000);
-}
-
-
-// -----------------------------------------------------
-// LOAD INBOX
-// -----------------------------------------------------
-async function loadInbox() {
-
-    const res = await fetch("https://api.mail.tm/messages", {
-        headers: {"Authorization": "Bearer " + token}
-    });
-
-    const data = await res.json();
-    const mails = data["hydra:member"];
-
-    if (!mails.length) {
-        inboxBox.innerHTML = `
-            <div class="flex items-center justify-center size-10 bg-primary/10 rounded-full text-primary">
-                <span class="material-symbols-outlined !text-2xl">inbox</span>
-            </div>
-            <h3 class="text-base font-bold">Your Inbox is Empty</h3>
-            <p class="text-xs text-text-light-secondary">Waiting for incoming emails…</p>
-        `;
-        return;
-    }
-
-    inboxBox.innerHTML = mails.map(m => `
-        <div onclick="openMail('${m.id}')"
-             class="w-full p-4 bg-card-light dark:bg-card-dark rounded-xl border hover:bg-primary/10 cursor-pointer transition">
-
-            <p class="font-bold text-sm">${m.from?.address || "Unknown Sender"}</p>
-            <p class="text-xs mt-1">${m.subject || "No Subject"}</p>
-            <p class="text-xs mt-1 text-text-light-secondary">${m.intro}</p>
-        </div>
-    `).join("");
-}
-
-
-// -----------------------------------------------------
-// OPEN MAIL
-// -----------------------------------------------------
-window.openMail = async function(id) {
-
-    modal.classList.remove("hidden");
-    loader.classList.remove("hidden");
-    mailContent.classList.add("hidden");
-
-    const res = await fetch("https://api.mail.tm/messages/" + id, {
-        headers: {"Authorization": "Bearer " + token}
-    });
-
-    const mail = await res.json();
-
-    mailSubject.innerText = mail.subject || "No Subject";
-    mailFrom.innerText = mail.from.address;
-
-    // Show only important link
-    mailText.innerHTML = extractImportantLinks(mail.text || "");
-
-    // Show HTML email if available
-    if (mail.html && mail.html.length) {
-        mailHtml.innerHTML = mail.html.join("");
+    if(TIER1.includes(code)){
+        loadAd("ad-header",     "3533469790", "auto");
+        loadAd("ad-inarticle",  "3533469790", "inarticle");
+        loadAd("ad-multiplex",  "3533469790", "autorelaxed");
     } else {
-        mailHtml.innerHTML = "";
+        loadAd("ad-header",     "3533469790");
+        loadAd("ad-inarticle",  "3533469790", "auto");
+        loadAd("ad-multiplex",  "3533469790", "autorelaxed");
     }
-
-    setTimeout(() => {
-        loader.classList.add("hidden");
-        mailContent.classList.remove("hidden");
-    }, 400);
-};
-
-
-// -----------------------------------------------------
-// CLOSE MAIL
-// -----------------------------------------------------
-window.closeMail = function() {
-    modal.style.opacity = "0";
-    setTimeout(() => modal.classList.add("hidden"), 200);
-};
-
-
-// -----------------------------------------------------
-// COPY EMAIL
-// -----------------------------------------------------
-copyBtn.onclick = () => {
-    navigator.clipboard.writeText(emailAddress);
-    const t = copyBtn.querySelector("span:last-child");
-    t.innerText = "Copied!";
-    setTimeout(() => t.innerText = "Copy", 1200);
-};
-
-
-// -----------------------------------------------------
-// NEW ADDRESS
-// -----------------------------------------------------
-newBtn.onclick = createAccount;
-
-
-// -----------------------------------------------------
-// DELETE ACCOUNT
-// -----------------------------------------------------
-deleteBtn.onclick = async () => {
-
-    if (!accountId) return;
-
-    await fetch("https://api.mail.tm/accounts/" + accountId, {
-        method: "DELETE",
-        headers: {"Authorization": "Bearer " + token}
-    });
-
-    createAccount();
-};
-
-
-// -----------------------------------------------------
-// INIT
-// -----------------------------------------------------
-createAccount();
-
 });
+
+/* Safe Ad Refresh (55 sec) */
+setInterval(()=>{
+    document.querySelectorAll(".adsbygoogle").forEach(ad=>{
+        let r = ad.getBoundingClientRect();
+        if(r.top < innerHeight && r.bottom > 0){
+            adsbygoogle.push({});
+        }
+    });
+}, 55000);
 </script>
-</body></html>
 
-
-
-
-
-
-
+</body>
+    </html>
