@@ -1,4 +1,8 @@
+
 <?php
+ob_start();
+
+
 // =========================================================
 // 🚫 Block Singapore traffic (allow Google crawlers / adsbot)
 // =========================================================
@@ -1113,5 +1117,6 @@ $description = "$keyword — Create and share self-destructing messages online w
   </script>
 </body>
 </html>
+
 
 
