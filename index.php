@@ -47,7 +47,7 @@ if (isset($_GET['q']) && trim($_GET['q']) !== '') {
     srand(crc32($daySeed));
     $keyword = $keywordsList[array_rand($keywordsList)];
 } else {
-    $keyword = 'Temporary Message Creator';
+    $keyword = 'insurance';
 }
 
 $keyword = htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8');
@@ -60,8 +60,8 @@ $description = "$keyword — Create and share self-destructing messages online w
   <meta charset="UTF-8" />
   <title>Best Car, Health & Life Insurance Quotes – Compare & Save</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums." />
+  <meta name="<?= $keyword ?>"
+        content=" <?= $keyword ?>  Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums." />
 
   <!-- ====== AdSense (REPLACE client ID) ====== -->
   <!-- Replace ca-pub-XXXXXXX with your own publisher ID -->
@@ -592,7 +592,7 @@ $description = "$keyword — Create and share self-destructing messages online w
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I get the cheapest car insurance quotes online?",
+        "name": " <?= $keyword ?> How do I get the cheapest car insurance quotes online?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Compare multiple car insurance providers, increase your voluntary deductible, bundle policies, maintain a clean driving record and ask for discounts for low mileage and safety features."
@@ -600,7 +600,7 @@ $description = "$keyword — Create and share self-destructing messages online w
       },
       {
         "@type": "Question",
-        "name": "What is the difference between term life insurance and whole life insurance?",
+        "name": " <?= $keyword ?> What is the difference between term life insurance and whole life insurance?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Term life insurance provides coverage for a specific period at a lower premium, while whole life insurance covers your entire life and includes a cash value component, but usually costs more."
@@ -618,7 +618,7 @@ $description = "$keyword — Create and share self-destructing messages online w
         InsureQuotes Hub
       </div>
       <nav class="nav-links">
-        <a href="#car-insurance">Car Insurance</a>
+        <a href="#car-insurance"> <?= $keyword ?> Car Insurance</a>
         <a href="#health-insurance">Health</a>
         <a href="#life-insurance">Life</a>
         <a href="#business-insurance">Business</a>
@@ -638,12 +638,12 @@ $description = "$keyword — Create and share self-destructing messages online w
           💰 High-value insurance &nbsp;•&nbsp; car, health, life & business
         </div>
         <h1>
-          Compare Car, Health &amp; Life Insurance Quotes<br />
-          <span style="font-size:0.95rem;font-weight:500;">Save more on premiums with smart coverage.</span>
+          <?= $keyword ?> <br />
+          
         </h1>
         <p>
-          Use this hub to understand <strong>car insurance quotes</strong>,
-          <strong>cheap health insurance plans</strong>, high-value
+            Use this hub to understand <strong>car insurance quotes</strong>,
+          <strong> <?= $keyword ?> cheap health insurance plans</strong>, high-value
           <strong>life insurance</strong> and <strong>small business liability insurance</strong>.
           Learn how to get lower rates without cutting essential coverage.
         </p>
@@ -712,7 +712,7 @@ $description = "$keyword — Create and share self-destructing messages online w
               <input id="country" placeholder="e.g. United States, Canada, UK" required />
             </div>
             <div>
-              <label for="budget">Approx monthly budget (in local currency)</label>
+              <label for="budget"> <?= $keyword ?> Approx monthly budget (in local currency)</label>
               <input id="budget" type="number" min="1" placeholder="e.g. 200" required />
             </div>
             <button class="btn-primary" style="margin-top:0.2rem;">
@@ -1113,4 +1113,5 @@ $description = "$keyword — Create and share self-destructing messages online w
   </script>
 </body>
 </html>
+
 
