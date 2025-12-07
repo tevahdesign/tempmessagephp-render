@@ -646,7 +646,7 @@ $description = "$keyword — Create and share self-destructing messages online w
           
         </h1>
         <p>
-            Use this hub to understand <strong>car insurance quotes</strong>,
+            <?= $keyword ?> Use this hub to understand <strong>car insurance quotes</strong>,
           <strong> <?= $keyword ?> cheap health insurance plans</strong>, high-value
           <strong>life insurance</strong> and <strong>small business liability insurance</strong>.
           Learn how to get lower rates without cutting essential coverage.
@@ -1117,6 +1117,7 @@ $description = "$keyword — Create and share self-destructing messages online w
   </script>
 </body>
 </html>
+
 
 
 
