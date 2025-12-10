@@ -79,7 +79,7 @@ ob_end_flush();
   <meta charset="UTF-8" />
   <title>Best Car, Health & Life Insurance Quotes – Compare & Save</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="<?= $keyword ?>"
+  <meta name="<?= $h1 ?>"
       
  content=" <?= $keyword ?>  Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums." />
 
@@ -669,7 +669,7 @@ ob_end_flush();
           💰 High-value insurance &nbsp;•&nbsp; car, health, life & business
         </div>
         <h1>
-          <?= $keyword ?> <br />
+          <?=$h1 ?> 
           
         </h1>
         <p>
@@ -1155,6 +1155,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
