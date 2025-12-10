@@ -7,7 +7,7 @@ ini_set('max_execution_time', '300');
 
 header("Content-Type: application/xml; charset=utf-8");
 
-$domain = "https://tempmessage.com"; // ONLY WWW DOMAIN
+$domain = "https://tempmessage.com/"; // ONLY WWW DOMAIN
 
 $keywordsFile = __DIR__ . '/keywords.txt';
 
@@ -51,7 +51,7 @@ foreach ($lines as $kw) {
 
     $kw = htmlspecialchars(trim($kw), ENT_QUOTES, 'UTF-8');
     $slug = makeSlug($kw);
-    $url = $domain . $slug . "/";
+    $url = $domain . $slug . "";
 
     echo "  <url>\n";
     echo "    <loc>{$url}</loc>\n";
