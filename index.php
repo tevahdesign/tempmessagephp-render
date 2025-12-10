@@ -2,12 +2,12 @@
 <?php
 ob_start();
 
-
 // =========================================================
 // 🚫 Block Singapore traffic (allow Google crawlers / adsbot)
 // =========================================================
 $userAgent = strtolower($_SERVER['HTTP_USER_AGENT'] ?? '');
 if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-google') === false) {
+
     function getClientIP() {
         foreach (['HTTP_CLIENT_IP','HTTP_X_FORWARDED_FOR','REMOTE_ADDR'] as $key) {
             if (!empty($_SERVER[$key])) {
@@ -17,8 +17,10 @@ if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-goog
         }
         return '0.0.0.0';
     }
+
     $ip = getClientIP();
     $cacheFile = sys_get_temp_dir() . "/geo_{$ip}.json";
+
     if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 86400) {
         $data = json_decode(file_get_contents($cacheFile), true);
     } else {
@@ -26,11 +28,13 @@ if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-goog
         $data = $resp ? json_decode($resp, true) : null;
         if ($data) file_put_contents($cacheFile, json_encode($data));
     }
+
     $country = $data['countryCode'] ?? null;
+
     if ($country === 'SG') {
         http_response_code(403);
         echo "<h1 style='text-align:center;margin-top:20vh;font-family:sans-serif;color:#444;'>Access Restricted</h1>
-        <p style='text-align:center;font-family:sans-serif;'>Sorry, TempMessage.com is not available in your region.</p>";
+              <p style='text-align:center;font-family:sans-serif;'>Sorry, TempMessage.com is not available in your region.</p>";
         exit;
     }
 }
@@ -39,25 +43,36 @@ if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-goog
 // 🌐 Page Setup and Dynamic SEO Variables
 // =========================================================
 $domain = "https://tempmessage.com/";
+
 $keywordsFile = __DIR__ . '/keywords.txt';
 $keywordsList = file_exists($keywordsFile)
-  ? file($keywordsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
-  : [];
+    ? file($keywordsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
+    : [];
 
+// ✅ Keyword logic (UNCHANGED)
 if (isset($_GET['q']) && trim($_GET['q']) !== '') {
-    $keyword = trim($_GET['q']);
+    $rawKeyword = trim($_GET['q']);
 } elseif (!empty($keywordsList)) {
     $daySeed = date('Ymd');
     srand(crc32($daySeed));
-    $keyword = $keywordsList[array_rand($keywordsList)];
+    $rawKeyword = $keywordsList[array_rand($keywordsList)];
 } else {
-    $keyword = 'insurance';
+    $rawKeyword = 'insurance';
 }
 
-$keyword = htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8');
+// ✅ SAFE OUTPUT VARIABLES
+$keyword = htmlspecialchars($rawKeyword, ENT_QUOTES, 'UTF-8');
+
+// ✅ Dynamic H1 (URL-based)
+$h1 = ucwords(str_replace(['-', '_'], ' ', $rawKeyword));
+$h1 = htmlspecialchars($h1, ENT_QUOTES, 'UTF-8');
+
+// ✅ Meta description
 $description = "$keyword — Create and share self-destructing messages online with TempMessage.com. End-to-end encryption ensures total privacy — no data stored, no accounts needed.";
+
+ob_end_flush();
 ?>
-<?php ob_end_flush(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +80,8 @@ $description = "$keyword — Create and share self-destructing messages online w
   <title>Best Car, Health & Life Insurance Quotes – Compare & Save</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="<?= $keyword ?>"
-        content=" <?= $keyword ?>  Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums." />
+      
+ content=" <?= $keyword ?>  Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums." />
 
   <!-- ====== AdSense (REPLACE client ID) ====== -->
   <!-- Replace ca-pub-XXXXXXX with your own publisher ID -->
@@ -73,7 +89,7 @@ $description = "$keyword — Create and share self-destructing messages online w
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="preconnect" href="https://googleads.g.doubleclick.net">
 <link rel="preconnect" href="https://tpc.googlesyndication.com">
-
+<link rel="canonical" href="https://tempmessage.com" />
 <!-- Load AdSense JS asynchronously -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -621,6 +637,17 @@ $description = "$keyword — Create and share self-destructing messages online w
         <span>IQ</span>
         InsureQuotes Hub
       </div>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-2885050972904135"
+     data-ad-slot="3533469790"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        
       <nav class="nav-links">
         <a href="#car-insurance"> <?= $keyword ?> Car Insurance</a>
         <a href="#health-insurance">Health</a>
@@ -646,6 +673,17 @@ $description = "$keyword — Create and share self-destructing messages online w
           
         </h1>
         <p>
+             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-2885050972904135"
+     data-ad-slot="3533469790"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+         
             <?= $keyword ?> Use this hub to understand <strong>car insurance quotes</strong>,
           <strong> <?= $keyword ?> cheap health insurance plans</strong>, high-value
           <strong>life insurance</strong> and <strong>small business liability insurance</strong>.
@@ -1117,6 +1155,7 @@ $description = "$keyword — Create and share self-destructing messages online w
   </script>
 </body>
 </html>
+
 
 
 
