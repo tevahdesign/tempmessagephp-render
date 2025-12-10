@@ -632,12 +632,7 @@ ob_end_flush();
 </head>
 <body>
   <header>
-    <div class="nav">
-      <div class="logo">
-        <span>IQ</span>
-        InsureQuotes Hub
-      </div>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885050972904135"
      crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
      style="display:block"
@@ -647,6 +642,12 @@ ob_end_flush();
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+    <div class="nav">
+      <div class="logo">
+        <span>IQ</span>
+        InsureQuotes Hub
+      </div>
+          
         
       <nav class="nav-links">
         <a href="#car-insurance"> <?= $keyword ?> Car Insurance</a>
@@ -1155,6 +1156,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
