@@ -688,10 +688,10 @@ ob_end_flush();
     <section class="hero" id="top">
       <div class="hero-card">
         <div class="hero-highlight">
-          💰 <?= $keyword ?> High-value insurance &nbsp;•&nbsp; car, health, life & business
+          💰 <?= $h1 ?> High-value insurance &nbsp;•&nbsp; car, health, life & business
         </div>
         <h1>
-         <?= $keyword ?>
+         <?= $h1 ?>
           
         </h1>
         <p>
@@ -1177,6 +1177,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
