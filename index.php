@@ -1,4 +1,3 @@
-
 <?php
 ob_start();
 
@@ -63,12 +62,21 @@ if (isset($_GET['q']) && trim($_GET['q']) !== '') {
 // ✅ SAFE OUTPUT VARIABLES
 $keyword = htmlspecialchars($rawKeyword, ENT_QUOTES, 'UTF-8');
 
-// ✅ Dynamic H1 (URL-based)
+// ✅ Dynamic H1 (UNCHANGED)
 $h1 = ucwords(str_replace(['-', '_'], ' ', $rawKeyword));
 $h1 = htmlspecialchars($h1, ENT_QUOTES, 'UTF-8');
 
-// ✅ Meta description
+// ✅ Meta description (UNCHANGED)
 $description = "$keyword — Create and share self-destructing messages online with TempMessage.com. End-to-end encryption ensures total privacy — no data stored, no accounts needed.";
+
+// =========================================================
+// ✅ FIX: PROPER CANONICAL (THIS SOLVES INDEX ISSUE)
+// =========================================================
+if (isset($_GET['q']) && trim($_GET['q']) !== '') {
+    $canonical = $domain . '?q=' . urlencode($rawKeyword);
+} else {
+    $canonical = $domain;
+}
 
 ob_end_flush();
 ?>
@@ -89,7 +97,7 @@ ob_end_flush();
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="preconnect" href="https://googleads.g.doubleclick.net">
 <link rel="preconnect" href="https://tpc.googlesyndication.com">
-<link rel="canonical" href="https://tempmessage.com" />
+<link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8') ?>">
 <!-- Load AdSense JS asynchronously -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -1156,6 +1164,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
