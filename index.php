@@ -43,12 +43,24 @@ if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-goog
 // =========================================================
 $domain = "https://tempmessage.com/";
 
+// =========================================================
+// ✅ FIX: Read keyword from clean URL path if ?q not present
+// =========================================================
+if (!isset($_GET['q']) || trim($_GET['q']) === '') {
+    $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+    if ($path !== '' && $path !== 'index.php') {
+        $_GET['q'] = $path;
+    }
+}
+
 $keywordsFile = __DIR__ . '/keywords.txt';
 $keywordsList = file_exists($keywordsFile)
     ? file($keywordsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
     : [];
 
+// =========================================================
 // ✅ Keyword logic (UNCHANGED)
+// =========================================================
 if (isset($_GET['q']) && trim($_GET['q']) !== '') {
     $rawKeyword = trim($_GET['q']);
 } elseif (!empty($keywordsList)) {
@@ -59,21 +71,23 @@ if (isset($_GET['q']) && trim($_GET['q']) !== '') {
     $rawKeyword = 'insurance';
 }
 
+// =========================================================
 // ✅ SAFE OUTPUT VARIABLES
+// =========================================================
 $keyword = htmlspecialchars($rawKeyword, ENT_QUOTES, 'UTF-8');
 
-// ✅ Dynamic H1 (UNCHANGED)
+// ✅ Dynamic H1
 $h1 = ucwords(str_replace(['-', '_'], ' ', $rawKeyword));
 $h1 = htmlspecialchars($h1, ENT_QUOTES, 'UTF-8');
 
-// ✅ Meta description (UNCHANGED)
-$description = "$keyword — Create and share self-destructing messages online with TempMessage.com. End-to-end encryption ensures total privacy — no data stored, no accounts needed.";
+// ✅ Meta description
+$description = "$keyword  Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums.";
 
 // =========================================================
-// ✅ FIX: PROPER CANONICAL (THIS SOLVES INDEX ISSUE)
+// ✅ PROPER CANONICAL
 // =========================================================
 if (isset($_GET['q']) && trim($_GET['q']) !== '') {
-    $canonical = $domain . '?q=' . urlencode($rawKeyword);
+    $canonical = $domain . urlencode($rawKeyword);
 } else {
     $canonical = $domain;
 }
@@ -88,8 +102,7 @@ ob_end_flush();
   <title>Best Car, Health & Life Insurance Quotes – Compare & Save</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="<?= $h1 ?>"
-      
- content=" <?= $keyword ?>  Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums." />
+   <meta name="description" content="<?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?>">   
 
   <!-- ====== AdSense (REPLACE client ID) ====== -->
   <!-- Replace ca-pub-XXXXXXX with your own publisher ID -->
@@ -675,10 +688,10 @@ ob_end_flush();
     <section class="hero" id="top">
       <div class="hero-card">
         <div class="hero-highlight">
-          💰 High-value insurance &nbsp;•&nbsp; car, health, life & business
+          💰 <?= $keyword ?> High-value insurance &nbsp;•&nbsp; car, health, life & business
         </div>
         <h1>
-          <?=$h1 ?> 
+         <?= $keyword ?>
           
         </h1>
         <p>
@@ -772,7 +785,7 @@ ob_end_flush();
           </form>
           <p id="planSuggestion" class="hero-aside-note"></p>
           <p class="hero-aside-note">
-            This tool is for education only and does not provide financial,
+          <?= $keyword ?>  This tool is for education only and does not provide financial,
             legal or insurance advice. Always compare quotes from licensed
             insurance providers in your region.
           </p>
@@ -1164,6 +1177,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
