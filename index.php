@@ -1,9 +1,9 @@
 <?php
 ob_start();
 
-// =========================================================
-// 🚫 Block Singapore traffic (allow Google crawlers / adsbot)
-// =========================================================
+/* =========================================================
+   🚫 GEO BLOCK: Block Singapore (allow Google bots)
+   ========================================================= */
 $userAgent = strtolower($_SERVER['HTTP_USER_AGENT'] ?? '');
 if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-google') === false) {
 
@@ -21,93 +21,66 @@ if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-goog
     $cacheFile = sys_get_temp_dir() . "/geo_{$ip}.json";
 
     if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 86400) {
-        $data = json_decode(file_get_contents($cacheFile), true);
+        $geo = json_decode(file_get_contents($cacheFile), true);
     } else {
         $resp = @file_get_contents("http://ip-api.com/json/{$ip}?fields=status,countryCode");
-        $data = $resp ? json_decode($resp, true) : null;
-        if ($data) file_put_contents($cacheFile, json_encode($data));
+        $geo = $resp ? json_decode($resp, true) : [];
+        if ($geo) file_put_contents($cacheFile, json_encode($geo));
     }
 
-    $country = $data['countryCode'] ?? null;
-
-    if ($country === 'SG') {
+    if (($geo['countryCode'] ?? '') === 'SG') {
         http_response_code(403);
-        echo "<h1 style='text-align:center;margin-top:20vh;font-family:sans-serif;color:#444;'>Access Restricted</h1>
-              <p style='text-align:center;font-family:sans-serif;'>Sorry, TempMessage.com is not available in your region.</p>";
+        echo "<h1 style='text-align:center;margin-top:20vh;font-family:sans-serif'>Access Restricted</h1>
+              <p style='text-align:center;font-family:sans-serif'>This service is not available in your region.</p>";
         exit;
     }
 }
 
-// =========================================================
-// 🌐 Page Setup
-// =========================================================
+/* =========================================================
+   🌐 DOMAIN
+   ========================================================= */
 $domain = "https://tempmessage.com/";
 
-// =========================================================
-// ✅ Read keyword from clean URL path if ?q not present
-// =========================================================
+/* =========================================================
+   ✅ KEYWORD FROM CLEAN URL
+   ========================================================= */
 if (!isset($_GET['q']) || trim($_GET['q']) === '') {
     $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-    if ($path !== '' && $path !== 'index.php') {
+    if ($path !== '' && $path !== 'index.php' && $path !== 'sitemap.php') {
         $_GET['q'] = $path;
     }
 }
 
-// =========================================================
-// 📄 Load keywords file
-// =========================================================
+/* =========================================================
+   📄 KEYWORD SOURCE (FILE FALLBACK)
+   ========================================================= */
 $keywordsFile = __DIR__ . '/keywords.txt';
 $keywordsList = file_exists($keywordsFile)
     ? file($keywordsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
     : [];
 
-// =========================================================
-// ✅ Keyword logic (UNCHANGED)
-// =========================================================
-if (isset($_GET['q']) && trim($_GET['q']) !== '') {
+/* =========================================================
+   ✅ KEYWORD LOGIC
+   ========================================================= */
+if (!empty($_GET['q'])) {
     $rawKeyword = trim($_GET['q']);
 } elseif (!empty($keywordsList)) {
-    $daySeed = date('Ymd');
-    srand(crc32($daySeed));
+    srand(crc32(date('Ymd')));
     $rawKeyword = $keywordsList[array_rand($keywordsList)];
 } else {
     $rawKeyword = 'insurance';
 }
 
-// =========================================================
-// ✅ Flags
-// =========================================================
-$isKeywordPage = isset($_GET['q']) && trim($_GET['q']) !== '';
-
-// =========================================================
-// ✅ Safe output variables
-// =========================================================
+/* =========================================================
+   🔒 SAFE OUTPUT
+   ========================================================= */
 $keyword = htmlspecialchars($rawKeyword, ENT_QUOTES, 'UTF-8');
 $h1 = htmlspecialchars(ucwords(str_replace(['-', '_'], ' ', $rawKeyword)), ENT_QUOTES, 'UTF-8');
 
-// =========================================================
-// ✅ Meta description
-// =========================================================
-$description = "$keyword – Compare car insurance quotes, health insurance plans, life insurance, and business insurance. Get cheap rates and save more.";
-
-// =========================================================
-// ✅ GOOGLE-SAFE SELF REFERENCING CANONICAL (FIXED)
-// =========================================================
-if ($isKeywordPage) {
-    $canonical = $domain . rawurlencode($rawKeyword);
-} else {
-    $canonical = rtrim($domain, '/');
-}
-
-// =========================================================
-// ✅ UNIQUE BODY CONTENT SIGNAL (GOOGLE TRUST FIX)
-// =========================================================
-$seoParagraph = '';
-if ($isKeywordPage) {
-    $seoParagraph = "<p style='display:none'>
-        {$keyword} guide with comparisons, pricing insights, eligibility, and expert tips related to {$keyword}.
-    </p>";
-}
+/* =========================================================
+   📝 META DESCRIPTION (UNIQUE)
+   ========================================================= */
+$description = "Complete guide about {$keyword}. Learn benefits, comparisons, pricing, and important details related to {$keyword}.";
 
 ob_end_flush();
 ?>
@@ -119,7 +92,8 @@ ob_end_flush();
   <title>Best Car, Health & Life Insurance Quotes – Compare & Save</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="<?= $h1 ?>"
-   <meta name="description" content="<?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?>">   
+  <meta name="description" content="<?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?>">
+<meta name="robots" content="index, follow">
 
   <!-- ====== AdSense (REPLACE client ID) ====== -->
   <!-- Replace ca-pub-XXXXXXX with your own publisher ID -->
@@ -1194,6 +1168,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
