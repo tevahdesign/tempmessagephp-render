@@ -39,12 +39,12 @@ if (strpos($userAgent, 'googlebot') === false && strpos($userAgent, 'adsbot-goog
 }
 
 // =========================================================
-// 🌐 Page Setup and Dynamic SEO Variables
+// 🌐 Page Setup
 // =========================================================
 $domain = "https://tempmessage.com/";
 
 // =========================================================
-// ✅ FIX: Read keyword from clean URL path if ?q not present
+// ✅ Read keyword from clean URL path if ?q not present
 // =========================================================
 if (!isset($_GET['q']) || trim($_GET['q']) === '') {
     $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
@@ -53,6 +53,9 @@ if (!isset($_GET['q']) || trim($_GET['q']) === '') {
     }
 }
 
+// =========================================================
+// 📄 Load keywords file
+// =========================================================
 $keywordsFile = __DIR__ . '/keywords.txt';
 $keywordsList = file_exists($keywordsFile)
     ? file($keywordsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
@@ -72,24 +75,38 @@ if (isset($_GET['q']) && trim($_GET['q']) !== '') {
 }
 
 // =========================================================
-// ✅ SAFE OUTPUT VARIABLES
+// ✅ Flags
+// =========================================================
+$isKeywordPage = isset($_GET['q']) && trim($_GET['q']) !== '';
+
+// =========================================================
+// ✅ Safe output variables
 // =========================================================
 $keyword = htmlspecialchars($rawKeyword, ENT_QUOTES, 'UTF-8');
+$h1 = htmlspecialchars(ucwords(str_replace(['-', '_'], ' ', $rawKeyword)), ENT_QUOTES, 'UTF-8');
 
-// ✅ Dynamic H1
-$h1 = ucwords(str_replace(['-', '_'], ' ', $rawKeyword));
-$h1 = htmlspecialchars($h1, ENT_QUOTES, 'UTF-8');
-
+// =========================================================
 // ✅ Meta description
-$description = "$keyword  Compare car insurance quotes, health insurance plans, life insurance, and small business liability insurance. Get cheap insurance rates and save more on premiums.";
+// =========================================================
+$description = "$keyword – Compare car insurance quotes, health insurance plans, life insurance, and business insurance. Get cheap rates and save more.";
 
 // =========================================================
-// ✅ PROPER CANONICAL
+// ✅ GOOGLE-SAFE SELF REFERENCING CANONICAL (FIXED)
 // =========================================================
-if (isset($_GET['q']) && trim($_GET['q']) !== '') {
-    $canonical = $domain . urlencode($rawKeyword);
+if ($isKeywordPage) {
+    $canonical = $domain . rawurlencode($rawKeyword);
 } else {
-    $canonical = $domain;
+    $canonical = rtrim($domain, '/');
+}
+
+// =========================================================
+// ✅ UNIQUE BODY CONTENT SIGNAL (GOOGLE TRUST FIX)
+// =========================================================
+$seoParagraph = '';
+if ($isKeywordPage) {
+    $seoParagraph = "<p style='display:none'>
+        {$keyword} guide with comparisons, pricing insights, eligibility, and expert tips related to {$keyword}.
+    </p>";
 }
 
 ob_end_flush();
@@ -1177,6 +1194,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
