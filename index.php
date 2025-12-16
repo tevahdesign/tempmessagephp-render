@@ -127,7 +127,7 @@ ob_end_flush();
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="preconnect" href="https://googleads.g.doubleclick.net">
 <link rel="preconnect" href="https://tpc.googlesyndication.com">
-<link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8') ?>">
+
 <!-- Load AdSense JS asynchronously -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -1194,6 +1194,7 @@ ob_end_flush();
   </script>
 </body>
 </html>
+
 
 
 
